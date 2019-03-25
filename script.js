@@ -10,7 +10,7 @@ function getCourses() {
             let allCourses = JSON.parse(this.responseText);
             console.log(allCourses);
             for (let c = 0; c < allCourses.courses.length; c++) {
-                $('.courseBox').append(`<div>
+                $('.courseBox').append(`<div class="coursesList">
                     <button onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
                    
                     </div>`);
@@ -21,18 +21,20 @@ function getCourses() {
     xhttp.send();
 }
 
-function selectCourse(id, courseButton) {
+function selectCourse(id, btn) {
+    let theCourse = $(btn).parent();
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             selectedCourse = JSON.parse(this.responseText);
             console.log(selectedCourse);
 
-            let teeBox = selectedCourse.data.holes[0].teeBoxes[0].teeTypeId;
+            let teeBox = selectedCourse.data.holes[0].teeBoxes;
             console.log(teeBox);
 
             for (let i = 0; i < teeBox.length; i++) {
-
+                $(theCourse).append(`<button onclick="showCard()">${teeBox[i].teeColorType}</button>`)
             }
         }
     };
@@ -40,3 +42,6 @@ function selectCourse(id, courseButton) {
     xhttp.send();
 }
 
+function showCard() {
+
+}
