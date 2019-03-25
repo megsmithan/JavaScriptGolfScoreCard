@@ -1,4 +1,5 @@
 
+let selectedCourse;
 
 getCourses();
 
@@ -10,7 +11,7 @@ function getCourses() {
             console.log(allCourses);
             for (let c = 0; c < allCourses.courses.length; c++) {
                 $('.courseBox').append(`<div>
-                    <button onclick="selectCourse(${allCourses.courses[c].id})">${allCourses.courses[c].name}</button>
+                    <button onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
                    
                     </div>`);
             }
@@ -20,6 +21,22 @@ function getCourses() {
     xhttp.send();
 }
 
-function selectCourse() {
+function selectCourse(id, courseButton) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            selectedCourse = JSON.parse(this.responseText);
+            console.log(selectedCourse);
 
+            let teeBox = selectedCourse.data.holes[0].teeBoxes[0].teeTypeId;
+            console.log(teeBox);
+
+            for (let i = 0; i < teeBox.length; i++) {
+
+            }
+        }
+    };
+    xhttp.open("GET", "https://golf-courses-api.herokuapp.com/courses/" + id, true);
+    xhttp.send();
 }
+
