@@ -1,0 +1,23 @@
+{
+  "name": "project3-golf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meganmsmith58/Project3-Golf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meganmsmith58/Project3-Golf/issues"
+  },
+  "homepage": "https://github.com/meganmsmith58/Project3-Golf#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
