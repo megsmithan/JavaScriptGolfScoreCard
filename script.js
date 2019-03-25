@@ -34,7 +34,7 @@ function selectCourse(id, btn) {
             console.log(teeBox);
 
             for (let i = 0; i < teeBox.length; i++) {
-                $(theCourse).append(`<button onclick="showCard()">${teeBox[i].teeColorType}</button>`)
+                $(theCourse).append(`<button onclick="showCard(${i})">${teeBox[i].teeColorType}</button>`)
             }
         }
     };
@@ -42,6 +42,13 @@ function selectCourse(id, btn) {
     xhttp.send();
 }
 
-function showCard() {
-
+function showCard(teeType) {
+    let selectedTees = teeType;
+    $('.courseCard').append(`<div id="courseName">${selectedCourse.data.name}</div>`)
+    for (let c = 0; c < selectedCourse.data.holes.length; c++) {
+        $('.courseCard').append(`<div>
+            <div>${selectedCourse.data.holes[c].hole}</div>
+            <div>${selectedCourse.data.holes[c].teeBoxes[selectedTees].par}</div>
+            </div>`)
+    }
 }
