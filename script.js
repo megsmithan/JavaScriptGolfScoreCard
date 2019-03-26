@@ -47,8 +47,8 @@ function showCard(teeType) {
     $('.courseCard').append(`<div id="courseName">${selectedCourse.data.name}</div>`)
     for (let c = 0; c < selectedCourse.data.holes.length; c++) {
         $('.courseCard').append(`<div>
-            <div>${selectedCourse.data.holes[c].hole}</div>
-            <div>${selectedCourse.data.holes[c].teeBoxes[selectedTees].par}</div>
+            <div>Hole ${selectedCourse.data.holes[c].hole}</div>
+            <div>Par ${selectedCourse.data.holes[c].teeBoxes[selectedTees].par}</div>
             </div>`)
     }
 }

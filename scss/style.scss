@@ -1,7 +1,15 @@
+$greywhite: #F1F5F0;
+$lightgreen: #B6D9B9;
+$medgreen: #4F7560;
+$darkgreen: #3F524E;
+$darkblue: #24373F;
 
 body {
-  background-color: #8a4182;
+  background-color: $greywhite;
 }
 .container {
+  display: flex;
+}
+.courseCard {
   display: flex;
 }

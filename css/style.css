@@ -1,5 +1,8 @@
 body {
-  background-color: #8a4182; }
+  background-color: #F1F5F0; }
 
 .container {
+  display: flex; }
+
+.courseCard {
   display: flex; }
