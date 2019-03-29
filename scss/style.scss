@@ -5,11 +5,69 @@ $darkgreen: #3F524E;
 $darkblue: #24373F;
 
 body {
-  background-color: $greywhite;
+  background-color: $darkgreen;
 }
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+//.coursesList {
+//  position: relative;
+//  text-align: center;
+//}
+.courseBtn {
+  //position: absolute;
+  width: 100px;
+  height: 50px;
+  border-radius: 15px;
+}
+.courseBtn:hover {
+  background-color: $lightgreen;
+}
+
+
+
 .courseCard {
+  padding: 20px;
   display: flex;
+  //justify-content: center;
+  background-color: $greywhite;
+
+}
+.courseInfoBox {
+  display: flex;
+}
+
+.columns {
+  border: 1px solid $darkblue;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.holeRow {
+  margin-bottom: 5px;
+}
+
+.holeStyle {
+  color: deeppink;
+  font-weight: bold;
+  //border-bottom: 1px solid $darkblue;
+}
+.parStyle {
+  color: orangered;
+  //border-bottom: 1px solid $darkblue;
+}
+.yardsStyle{
+  color: blue;
+  //border-bottom: 1px solid $darkblue;
+}
+.hcpStyle{
+  color: rebeccapurple;
+  //border-bottom: 1px solid $darkblue;
+}
+
+.scoreInputBox {
+  width: 25px;
 }

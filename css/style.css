@@ -1,8 +1,49 @@
 body {
-  background-color: #F1F5F0; }
+  background-color: #3F524E; }
 
 .container {
-  display: flex; }
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+
+.courseBtn {
+  width: 100px;
+  height: 50px;
+  border-radius: 15px; }
+
+.courseBtn:hover {
+  background-color: #B6D9B9; }
 
 .courseCard {
+  padding: 20px;
+  display: flex;
+  background-color: #F1F5F0; }
+
+.courseInfoBox {
   display: flex; }
+
+.columns {
+  border: 1px solid #24373F;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.holeRow {
+  margin-bottom: 5px; }
+
+.holeStyle {
+  color: deeppink;
+  font-weight: bold; }
+
+.parStyle {
+  color: orangered; }
+
+.yardsStyle {
+  color: blue; }
+
+.hcpStyle {
+  color: rebeccapurple; }
+
+.scoreInputBox {
+  width: 25px; }
