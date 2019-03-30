@@ -23,13 +23,21 @@ body {
 
 .courseInfoBox {
   display: flex; }
+  .courseInfoBox .columns {
+    border: 1px solid #24373F;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  .courseInfoBox .totalColumn {
+    border: 1px solid #24373F;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
 
-.columns {
-  border: 1px solid #24373F;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
+.leftBox {
+  align-items: flex-end; }
 
 .holeRow {
   margin-bottom: 5px; }
@@ -49,3 +57,8 @@ body {
 
 .scoreInputBox {
   width: 25px; }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }

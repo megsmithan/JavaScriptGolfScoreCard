@@ -4,6 +4,14 @@ $medgreen: #4F7560;
 $darkgreen: #3F524E;
 $darkblue: #24373F;
 
+@mixin columnStyle {
+  border: 1px solid $darkblue;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 body {
   background-color: $darkgreen;
 }
@@ -45,16 +53,20 @@ body {
 }
 .courseInfoBox {
   display: flex;
+
+  .columns {
+    @include columnStyle;
+  }
+
+  .totalColumn {
+    @include columnStyle;
+  }
 }
 
-
-.columns {
-  border: 1px solid $darkblue;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center
+.leftBox{
+  align-items: flex-end;
 }
+
 .holeRow {
   margin-bottom: 5px;
 }
@@ -75,4 +87,10 @@ body {
 
 .scoreInputBox {
   width: 25px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
