@@ -43,6 +43,12 @@ function selectCourse(id, btn) {
 
 function showCard(teeType) {
     let selectedTees = teeType;
+    let outPar = 0;
+    let outYards = 0;
+    let inPar = 0;
+    let inYards = 0;
+    let totalPar = 0;
+    let totalYards = 0;
     $('.courseCard').prepend(`<div id="courseName">${selectedCourse.data.name}</div>`);
     for (let c = 0; c < 9; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
@@ -52,15 +58,13 @@ function showCard(teeType) {
             <div class="holeRow, hcpStyle">${selectedCourse.data.holes[c].teeBoxes[selectedTees].hcp}</div>
             </div>`)
     }
-
     $('.courseInfoBox').append(`<div class="totalColumn outTotals">OUT</div>`);
-    $('.outTotals').append(`<div>${selectedCourse.data.holes[0].teeBoxes[selectedTees].par}+${selectedCourse.data.holes[1].teeBoxes[selectedTees].par}</div>`);
     for (let o = 0; o < 9; o++) {
-        let parTotal = selectedCourse.data.holes[o].teeBoxes[selectedTees].par + selectedCourse.data.holes[o].teeBoxes[selectedTees].par;
-
+        outPar += selectedCourse.data.holes[o].teeBoxes[selectedTees].par;
+        outYards += selectedCourse.data.holes[o].teeBoxes[selectedTees].yards;
     }
-
-
+    $('.outTotals').append(`<div class="parStyle">${outPar}</div>`);
+    $('.outTotals').append(`<div class="yardsStyle">${outYards}</div>`);
 
     for (let c = 9; c < selectedCourse.data.holes.length; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
@@ -70,8 +74,24 @@ function showCard(teeType) {
             <div class="holeRow, hcpStyle">${selectedCourse.data.holes[c].teeBoxes[selectedTees].hcp}</div>
             </div>`)
     }
-    $('.courseInfoBox').append(`<div class="totalColumn">IN</div>`);
-    $('.courseInfoBox').append(`<div class="totalColumn">TOTAL</div>`);
+    $('.courseInfoBox').append(`<div class="totalColumn inTotals">IN</div>`);
+    for (let i = 9; i < selectedCourse.data.holes.length; i++) {
+        inPar += selectedCourse.data.holes[i].teeBoxes[selectedTees].par;
+        inYards += selectedCourse.data.holes[i].teeBoxes[selectedTees].yards;
+    }
+    $('.inTotals').append(`<div class="parStyle">${inPar}</div>`);
+    $('.inTotals').append(`<div class="yardsStyle">${inYards}</div>`);
+
+
+    $('.courseInfoBox').append(`<div class="totalColumn totalTotal">TOTAL</div>`);
+    for (let t = 0; t < selectedCourse.data.holes.length; t++) {
+        totalPar += selectedCourse.data.holes[t].teeBoxes[selectedTees].par;
+        totalYards += selectedCourse.data.holes[t].teeBoxes[selectedTees].yards;
+    }
+    $('.totalTotal').append(`<div class="parStyle">${totalPar}</div>`);
+    $('.totalTotal').append(`<div class="yardsStyle">${totalYards}</div>`);
+
+
     $('.holeParYardBox').append(`<div>
             <div class="holeStyle">hole</div>
             <div class="parStyle">par</div>
