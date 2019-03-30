@@ -12,15 +12,23 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.mainImage {
+  width: 100%;
+  height: 400px;
+}
+.demo-card-wide.mdl-card {
+  width: 1000px;
+}
 //.coursesList {
 //  position: relative;
 //  text-align: center;
 //}
 .courseBtn {
   //position: absolute;
-  width: 100px;
-  height: 50px;
-  border-radius: 15px;
+  //width: 100px;
+  //height: 50px;
+  //border-radius: 15px;
+  //background-color: $greywhite;
 }
 .courseBtn:hover {
   background-color: $lightgreen;
@@ -29,15 +37,16 @@ body {
 
 
 .courseCard {
-  padding: 20px;
+  //padding: 20px;
   display: flex;
-  //justify-content: center;
+  justify-content: center;
   background-color: $greywhite;
 
 }
 .courseInfoBox {
   display: flex;
 }
+
 
 .columns {
   border: 1px solid $darkblue;
@@ -53,19 +62,15 @@ body {
 .holeStyle {
   color: deeppink;
   font-weight: bold;
-  //border-bottom: 1px solid $darkblue;
 }
 .parStyle {
   color: orangered;
-  //border-bottom: 1px solid $darkblue;
 }
 .yardsStyle{
   color: blue;
-  //border-bottom: 1px solid $darkblue;
 }
 .hcpStyle{
   color: rebeccapurple;
-  //border-bottom: 1px solid $darkblue;
 }
 
 .scoreInputBox {

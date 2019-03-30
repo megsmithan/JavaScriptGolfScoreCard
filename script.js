@@ -11,7 +11,7 @@ function getCourses() {
             //console.log(allCourses);
             for (let c = 0; c < allCourses.courses.length; c++) {
                 $('.courseBox').append(`<div class="coursesList">
-                    <button class="courseBtn" onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised courseBtn" onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
                     </div>`);
             }
         }
@@ -43,7 +43,7 @@ function selectCourse(id, btn) {
 
 function showCard(teeType) {
     let selectedTees = teeType;
-    $('.courseCard').append(`<div id="courseName">${selectedCourse.data.name}</div>`);
+    $('.courseCard').prepend(`<div id="courseName">${selectedCourse.data.name}</div>`);
     for (let c = 0; c < selectedCourse.data.holes.length; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
            
@@ -51,6 +51,7 @@ function showCard(teeType) {
             <div class="holeRow, parStyle">${selectedCourse.data.holes[c].teeBoxes[selectedTees].par}</div>
             <div class="holeRow, yardsStyle">${selectedCourse.data.holes[c].teeBoxes[selectedTees].yards}</div>
             <div class="holeRow, hcpStyle">${selectedCourse.data.holes[c].teeBoxes[selectedTees].hcp}</div>
+            
             </div>`)
     }
     $('.holeParYardBox').append(`<div>
@@ -66,9 +67,6 @@ function showCard(teeType) {
 function addScoreBoxes() {
     let players = 4;
     $('.playerBox').append(`<div>
-        <!--<div>hole</div>-->
-        <!--<div>par</div>-->
-        <!--<div>yards</div>-->
         <input type="text" placeholder="Player 1">
         <input type="text" placeholder="Player 1">
         <input type="text" placeholder="Player 1">
