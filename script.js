@@ -98,35 +98,47 @@ function showCard(teeType) {
             <div class="yardsStyle">yards</div>
             <div class="hcpStyle">handicap</div>
             </div>`);
-    $('.playerBox').append(`<div class="addPlayerBox"><input class="addPlayerInput" type="text" placeholder="type name here" onkeyup="createPlayer(this, event)"></div>`)
+    $('.playerBox').append(`<div class="addPlayerBox"><input class="addPlayerInput" type="text" placeholder="type name here" onkeyup="createPlayer(this.value, event)"></div>`)
 }
 
 function createPlayer(val) {
     switch(event.key) {
         case 'Enter':
             let myid = playerX.playersArray.length;
-            playerX.addPlayer(myid, val.value);
+            playerX.addPlayer(myid, val);
 
             let players = 1;
             $('.playerBox').append(`<div>
-               ${val.value}
+               ${val}
                 </div>`);
             $('.addPlayerInput').val('');
             for (let p = 0; p < players; p++) {
                 for (let h = 0; h < selectedCourse.data.holes.length; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateScores(this, event)" class="scoreInputBox" id="p${p}h${h}" type="number">`)
+                    // send player id to calculateScores
+                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value, event)" class="scoreInputBox" id="${myid}" type="number">`)
                 }
             }
+            if(playerX.playersArray.length === 4) {
+                $('.addPlayerBox').hide();
+        }
     }
     console.log(playerX.playersArray);
 }
 
 
-function calculateScores(val, event) {
+function calculateScores(id, val, event) {
     switch(event.key) {
         case 'Enter':
-            PlayerCollection.addScore();
+
+            // find player by id
+            // call addScore to that player
+            for (let i = 0; i < playerX.playersArray.length; i++){
+                if (playerX.playersArray[i].id === id) {
+                    playerX.playersArray[i].addScore(val);
+                }
+        }
     }
+    console.log(playerX.playersArray);
 }
 
 

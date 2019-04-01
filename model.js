@@ -2,24 +2,21 @@
 class PlayerCollection {
     constructor() {
         this.playersArray = [];
-        this.playerScoreArray = [];
+       // this.playerScoreArray = [];
     }
     addPlayer(id, myname) {
-        this.playersArray.push(new Player(id, myname, this.playerScoreArray));
-
-    }
-
-    addScore(num) {
-        this.playerScoreArray.push(num);
+        this.playersArray.push(new Player(id, myname,[]));
     }
 }
-
 
 class Player {
     constructor(id, name, score) {
         this.id = id;
         this.name = name;
-        this.score = score;
+        this.score = [];
+    }
+    addScore(num) {
+        this.score.push(num);
     }
 
 }
