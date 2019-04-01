@@ -97,30 +97,77 @@ function showCard(teeType) {
             <div class="parStyle">par</div>
             <div class="yardsStyle">yards</div>
             <div class="hcpStyle">handicap</div>
-            </div>`)
-    addScoreBoxes();
+            </div>`);
+    $('.playerBox').append(`<div class="addPlayerBox"><input class="addPlayerInput" type="text" placeholder="type name here" onkeyup="createPlayer(this, event)"></div>`)
+}
+
+function createPlayer(val) {
+    switch(event.key) {
+        case 'Enter':
+            let myid = playerX.playersArray.length;
+            playerX.addPlayer(myid, val.value);
+
+            let players = 1;
+            $('.playerBox').append(`<div>
+               ${val.value}
+                </div>`);
+            $('.addPlayerInput').val('');
+            for (let p = 0; p < players; p++) {
+                for (let h = 0; h < selectedCourse.data.holes.length; h++) {
+                    $('#col' + h).append(`<input onkeyup="calculateScores(this, event)" class="scoreInputBox" id="p${p}h${h}" type="number">`)
+                }
+            }
+    }
+    console.log(playerX.playersArray);
 }
 
 
-function addScoreBoxes() {
-    let players = 4;
-    $('.playerBox').append(`<div>
-        <input type="text" placeholder="chewbaca">
-        <input type="text" placeholder="han solo">
-        <input type="text" placeholder="r2-d2">
-        <input type="text" placeholder="c3po">
-        
-        </div>`);
-    for (let p = 0; p < players; p++) {
-        for (let h = 0; h < selectedCourse.data.holes.length; h++) {
-            $('#col' + h).append(`<input class="scoreInputBox" id="p${p}h${h}" type="number">`)
-        }
+function calculateScores(val, event) {
+    switch(event.key) {
+        case 'Enter':
+            PlayerCollection.addScore();
     }
 }
 
 
 
 
-// $('.playerBox').append(`<div class="playerBtn">
-//             <button class="mdl-button mdl-js-button mdl-button--raised" onclick="addScoreBoxes()">add player</button>
-//             </div>`
+
+
+
+
+
+//
+// $('.playerBox').append(`<input type="text" onkeyup="createPlayer(this, event)" placeholder="type name here">`)
+// }
+//
+// function createPlayer(val, event) {
+//     switch(event.key) {
+//         case 'Enter':
+//             let myid = playerX.playersArray.length;
+//             playerX.addPlayer(myid, val);
+//     }
+//
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
