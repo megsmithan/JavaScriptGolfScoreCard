@@ -22,3 +22,18 @@ class Player {
 }
 
 let playerX = new PlayerCollection();
+
+
+class HoleCollection{
+    constructor() {
+
+    }
+
+}
+
+class Holes {
+    constructor(id, score) {
+        this.id = id;
+        this.score = score;
+    }
+}

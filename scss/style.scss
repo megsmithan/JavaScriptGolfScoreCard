@@ -13,17 +13,30 @@ $darkblue: #24373F;
 }
 
 body {
-  background-color: $darkgreen;
+  background-color: $greywhite;
 }
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.mainImage {
+.topPage{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 400px;
+  height: 300px;
+  background-color: $greywhite;
+
+  .mainImage {
+    //width: 100%;
+    //height: 400px;
+  }
+  .header {
+
+  }
 }
+
 .demo-card-wide.mdl-card {
   width: 1000px;
 }
@@ -49,7 +62,11 @@ body {
   display: flex;
   justify-content: center;
   background-color: $greywhite;
+  border: 3px solid $darkgreen;
 
+  #courseName {
+    width: 100%;
+  }
 }
 .courseInfoBox {
   display: flex;

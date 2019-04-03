@@ -1,46 +1,4 @@
 
-let selectedCourse;
-
-getCourses();
-
-function getCourses() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let allCourses = JSON.parse(this.responseText);
-            //console.log(allCourses);
-            for (let c = 0; c < allCourses.courses.length; c++) {
-                $('.courseBox').append(`<div class="coursesList">
-                    <button class="mdl-button mdl-js-button mdl-button--raised courseBtn" onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
-                    </div>`);
-            }
-        }
-    };
-    xhttp.open("GET", "https://golf-courses-api.herokuapp.com/courses", true);
-    xhttp.send();
-}
-
-function selectCourse(id, btn) {
-    let theCourse = $(btn).parent();
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            selectedCourse = JSON.parse(this.responseText);
-            //console.log(selectedCourse);
-
-            let teeBox = selectedCourse.data.holes[0].teeBoxes;
-            //console.log(teeBox);
-
-            for (let i = 0; i < teeBox.length; i++) {
-                $(theCourse).append(`<button onclick="showCard(${i})">${teeBox[i].teeColorType}</button>`)
-            }
-        }
-    };
-    xhttp.open("GET", "https://golf-courses-api.herokuapp.com/courses/" + id, true);
-    xhttp.send();
-}
-
 function showCard(teeType) {
     let selectedTees = teeType;
     let outPar = 0;
@@ -105,6 +63,13 @@ function createPlayer(val) {
     switch(event.key) {
         case 'Enter':
             let myid = playerX.playersArray.length;
+            // for (let i = 0; i < playerX.playersArray.length; i++) {
+            //     if (playerX.playersArray[i].includes(val)) {
+            //         $('.playerBox').append(`<div>please select a name that has not been used</div>`)
+            //     } else {
+            //          playerX.addPlayer(myid, val);
+            //     }
+            // }
             playerX.addPlayer(myid, val);
 
             let players = 1;
@@ -114,28 +79,22 @@ function createPlayer(val) {
             $('.addPlayerInput').val('');
             for (let p = 0; p < players; p++) {
                 for (let h = 0; h < selectedCourse.data.holes.length; h++) {
-                    // send player id to calculateScores
-                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value, event)" class="scoreInputBox" id="${myid}" type="number">`)
+                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value)" class="scoreInputBox" id="${myid}" type="number">`)
                 }
             }
             if(playerX.playersArray.length === 4) {
                 $('.addPlayerBox').hide();
         }
     }
-    console.log(playerX.playersArray);
+    //console.log(playerX.playersArray);
 }
 
 
-function calculateScores(id, val, event) {
-    switch(event.key) {
-        case 'Enter':
-
-            // find player by id
-            // call addScore to that player
-            for (let i = 0; i < playerX.playersArray.length; i++){
-                if (playerX.playersArray[i].id === id) {
-                    playerX.playersArray[i].addScore(val);
-                }
+function calculateScores(id, val) {
+    for (let i = 0; i < playerX.playersArray.length; i++) {
+        if (playerX.playersArray[i].id === id) {
+            playerX.playersArray[i].addScore(val);
+            console.log(playerX.playersArray[i].score);
         }
     }
     console.log(playerX.playersArray);

@@ -1,14 +1,18 @@
 body {
-  background-color: #3F524E; }
+  background-color: #F1F5F0; }
 
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center; }
 
-.mainImage {
+.topPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 400px; }
+  height: 300px;
+  background-color: #F1F5F0; }
 
 .demo-card-wide.mdl-card {
   width: 1000px; }
@@ -19,7 +23,10 @@ body {
 .courseCard {
   display: flex;
   justify-content: center;
-  background-color: #F1F5F0; }
+  background-color: #F1F5F0;
+  border: 3px solid #3F524E; }
+  .courseCard #courseName {
+    width: 100%; }
 
 .courseInfoBox {
   display: flex; }
