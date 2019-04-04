@@ -23,6 +23,7 @@ function showCard(teeType) {
     }
     $('.outTotals').append(`<div class="parStyle">${outPar}</div>`);
     $('.outTotals').append(`<div class="yardsStyle">${outYards}</div>`);
+    $('.outTotals').append(`<div class="hcpStyle">-</div>`);
 
     for (let c = 9; c < selectedCourse.data.holes.length; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
@@ -39,6 +40,7 @@ function showCard(teeType) {
     }
     $('.inTotals').append(`<div class="parStyle">${inPar}</div>`);
     $('.inTotals').append(`<div class="yardsStyle">${inYards}</div>`);
+    $('.inTotals').append(`<div class="hcpStyle">-</div>`);
 
 
     $('.courseInfoBox').append(`<div class="totalColumn totalTotal">TOTAL</div>`);
@@ -48,6 +50,7 @@ function showCard(teeType) {
     }
     $('.totalTotal').append(`<div class="parStyle">${totalPar}</div>`);
     $('.totalTotal').append(`<div class="yardsStyle">${totalYards}</div>`);
+    $('.totalTotal').append(`<div class="hcpStyle">-</div>`);
 
 
     $('.holeParYardBox').append(`<div>
@@ -78,8 +81,12 @@ function createPlayer(val) {
                 </div>`);
             $('.addPlayerInput').val('');
             for (let p = 0; p < players; p++) {
+                $('.outTotals').append(`<div id =out${myid}>a</div>`);
+                $('.inTotals').append(`<div id =in${myid}>a</div>`);
+                $('.totalTotal').append(`<div id =total${myid}>a</div>`);
                 for (let h = 0; h < selectedCourse.data.holes.length; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value)" class="scoreInputBox" id="${myid}" type="number">`)
+                    $('#col' + h).append(`<input onkeyup="calculateScores( ${myid}, this.value)" class="scoreInputBox" id="p${myid}" type="number">`)
+
                 }
             }
             if(playerX.playersArray.length === 4) {
@@ -87,9 +94,29 @@ function createPlayer(val) {
         }
     }
     //console.log(playerX.playersArray);
+
 }
 
 
+function calculateScores(id, val) {
+
+    for (let i = 0; i < playerX.playersArray.length; i++) {
+        if (playerX.playersArray[i].id === id) {
+            playerX.playersArray[i].addScore(Number(val));
+            console.log(playerX.playersArray[i].score);
+        }
+        let outSum = playerX.playersArray[i].score.reduce((a, b) => a + b);
+        playerX.playersArray[i].outScore(outSum);
+        console.log(playerX.playersArray[i].out);
+        $('#out' + id).html(`${playerX.playersArray[i].out}`);
+    }
+
+
+
+    console.log(playerX.playersArray);
+}
+
+/*
 function calculateScores(id, val) {
     for (let i = 0; i < playerX.playersArray.length; i++) {
         if (playerX.playersArray[i].id === id) {
@@ -98,10 +125,7 @@ function calculateScores(id, val) {
         }
     }
     console.log(playerX.playersArray);
-}
-
-
-
+}*/
 
 
 
