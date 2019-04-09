@@ -81,14 +81,22 @@ function createPlayer(val) {
                 </div>`);
             $('.addPlayerInput').val('');
             for (let p = 0; p < players; p++) {
-                $('.outTotals').append(`<div id =out${myid}>a</div>`);
-                $('.inTotals').append(`<div id =in${myid}>a</div>`);
-                $('.totalTotal').append(`<div id =total${myid}>a</div>`);
-                for (let h = 0; h < selectedCourse.data.holes.length; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateScores( ${myid}, this.value)" class="scoreInputBox" id="p${myid}" type="number">`)
+                $('.outTotals').append(`<div id = out${myid}>a</div>`);
+                for (let h = 0; h < 9; h++) {
+                    $('#col' + h).append(`<input onkeyup="calculateOut(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
 
                 }
             }
+
+            for (let p = 0; p < players; p++) {
+                $('.inTotals').append(`<div id = in${myid}>a</div>`);
+                $('.totalTotal').append(`<div id = total${myid}>a</div>`);
+                for (let h = 9; h < selectedCourse.data.holes.length; h++) {
+                    $('#col' + h).append(`<input onkeyup="calculateIn(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
+
+                }
+            }
+
             if(playerX.playersArray.length === 4) {
                 $('.addPlayerBox').hide();
         }
@@ -98,21 +106,31 @@ function createPlayer(val) {
 }
 
 
-function calculateScores(id, val) {
-
-    for (let i = 0; i < playerX.playersArray.length; i++) {
+function calculateOut(id, val) {
+    for (let i = 0; i < 9; i++) {
         if (playerX.playersArray[i].id === id) {
-            playerX.playersArray[i].addScore(Number(val));
-            console.log(playerX.playersArray[i].score);
+            playerX.playersArray[i].addOutScore(Number(val));
+            console.log(playerX.playersArray[i].outArray);
         }
-        let outSum = playerX.playersArray[i].score.reduce((a, b) => a + b);
+        let outSum = playerX.playersArray[i].outArray.reduce((a, b) => a + b);
         playerX.playersArray[i].outScore(outSum);
         console.log(playerX.playersArray[i].out);
         $('#out' + id).html(`${playerX.playersArray[i].out}`);
     }
+    console.log(playerX.playersArray);
+}
 
-
-
+function calculateIn(id, val) {
+    for (let i = 9; i < playerX.playersArray.length; i++) {
+        if (playerX.playersArray[i].id === id) {
+            playerX.playersArray[i].addInScore(Number(val));
+            console.log(playerX.playersArray[i].inArray);
+        }
+        let inSum = playerX.playersArray[i].inArray.reduce((a, b) => a + b);
+        playerX.playersArray[i].inScore(inSum);
+        console.log(playerX.playersArray[i].inscore);
+        $('#in' + id).html(`${playerX.playersArray[i].inscore}`);
+    }
     console.log(playerX.playersArray);
 }
 

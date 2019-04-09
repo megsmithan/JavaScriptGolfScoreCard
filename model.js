@@ -5,26 +5,31 @@ class PlayerCollection {
        // this.playerScoreArray = [];
     }
     addPlayer(id, myname) {
-        this.playersArray.push(new Player(id, myname,[], [], [], []));
+        this.playersArray.push(new Player(id, myname,[], [], [], [], []));
     }
 }
 
 class Player {
-    constructor(id, name, score, out, inscore, total) {
+    constructor(id, name, outArray, out, inArray, inscore, total) {
         this.id = id;
         this.name = name;
-        this.score = [];
+        this.outArray = [];
         this.out = [];
+        this.inArray = [];
+        this.inscore = [];
     }
-    addScore(num) {
-        this.score.push(num);
+    addOutScore(num) {
+        this.outArray.push(num);
+    }
+    addInScore(num) {
+        this.inArray.push(num);
     }
     outScore(num) {
         this.out.splice(0, 1, num);
         //this.out.push(num);
     }
     inScore(num) {
-        this.inscore.splice(0, 1, num)
+        this.inArray.splice(0, 1, num)
     }
     totalScore(num) {
         this.total.splice(0, 1, num);
@@ -34,17 +39,3 @@ class Player {
 
 let playerX = new PlayerCollection();
 
-
-class HoleCollection{
-    constructor() {
-
-    }
-
-}
-
-class Holes {
-    constructor(id, score) {
-        this.id = id;
-        this.score = score;
-    }
-}
