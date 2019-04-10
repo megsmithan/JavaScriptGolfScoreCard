@@ -83,7 +83,7 @@ function createPlayer(val) {
             for (let p = 0; p < players; p++) {
                 $('.outTotals').append(`<div id = out${myid}>a</div>`);
                 for (let h = 0; h < 9; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateOut(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
+                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
 
                 }
             }
@@ -92,7 +92,7 @@ function createPlayer(val) {
                 $('.inTotals').append(`<div id = in${myid}>a</div>`);
                 $('.totalTotal').append(`<div id = total${myid}>a</div>`);
                 for (let h = 9; h < selectedCourse.data.holes.length; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateIn(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
+                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, ${h}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
 
                 }
             }
@@ -105,63 +105,33 @@ function createPlayer(val) {
 
 }
 
+function calculateScores(id) {
+    let outTotal = 0;
+    let total = 0;
+    let inTotal = 0;
 
-function calculateOut(id, val) {
-    for (let i = 0; i < 9; i++) {
-        if (playerX.playersArray[i].id === id) {
-            playerX.playersArray[i].addOutScore(Number(val));
-            console.log(playerX.playersArray[i].outArray);
-        }
-        let outSum = playerX.playersArray[i].outArray.reduce((a, b) => a + b);
-        playerX.playersArray[i].outScore(outSum);
-        console.log(playerX.playersArray[i].out);
-        $('#out' + id).html(`${playerX.playersArray[i].out}`);
+    for(let h = 0; h < 9; h++) {
+        outTotal += Number($(`#p${id}h${h}`).val());
     }
-    console.log(playerX.playersArray);
+    $(`#out${id}`).html(outTotal);
+
+    for(let h = 9; h < 18; h++) {
+        inTotal += Number($(`#p${id}h${h}`).val());
+    }
+    $(`#in${id}`).html(inTotal);
+
+    for(let h = 0; h < 18; h++) {
+        total += Number($(`#p${id}h${h}`).val());
+    }
+    $(`#total${id}`).html(total);
 }
 
-function calculateIn(id, val) {
-    for (let i = 9; i < playerX.playersArray.length; i++) {
-        if (playerX.playersArray[i].id === id) {
-            playerX.playersArray[i].addInScore(Number(val));
-            console.log(playerX.playersArray[i].inArray);
-        }
-        let inSum = playerX.playersArray[i].inArray.reduce((a, b) => a + b);
-        playerX.playersArray[i].inScore(inSum);
-        console.log(playerX.playersArray[i].inscore);
-        $('#in' + id).html(`${playerX.playersArray[i].inscore}`);
-    }
-    console.log(playerX.playersArray);
-}
-
-/*
-function calculateScores(id, val) {
-    for (let i = 0; i < playerX.playersArray.length; i++) {
-        if (playerX.playersArray[i].id === id) {
-            playerX.playersArray[i].addScore(val);
-            console.log(playerX.playersArray[i].score);
-        }
-    }
-    console.log(playerX.playersArray);
-}*/
 
 
 
 
 
 
-//
-// $('.playerBox').append(`<input type="text" onkeyup="createPlayer(this, event)" placeholder="type name here">`)
-// }
-//
-// function createPlayer(val, event) {
-//     switch(event.key) {
-//         case 'Enter':
-//             let myid = playerX.playersArray.length;
-//             playerX.addPlayer(myid, val);
-//     }
-//
-// }
 
 
 

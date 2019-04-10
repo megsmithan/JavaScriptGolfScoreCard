@@ -2,7 +2,6 @@
 class PlayerCollection {
     constructor() {
         this.playersArray = [];
-       // this.playerScoreArray = [];
     }
     addPlayer(id, myname) {
         this.playersArray.push(new Player(id, myname,[], [], [], [], []));
@@ -34,6 +33,7 @@ class Player {
     totalScore(num) {
         this.total.splice(0, 1, num);
     }
+
 
 }
 
