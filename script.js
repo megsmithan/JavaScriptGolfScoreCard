@@ -82,17 +82,10 @@ function createPlayer(val) {
             $('.addPlayerInput').val('');
             for (let p = 0; p < players; p++) {
                 $('.outTotals').append(`<div id = out${myid}>0</div>`);
-                for (let h = 0; h < 9; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
-
-                }
-            }
-
-            for (let p = 0; p < players; p++) {
                 $('.inTotals').append(`<div id = in${myid}>0</div>`);
                 $('.totalTotal').append(`<div id = total${myid}>0</div>`);
-                for (let h = 9; h < selectedCourse.data.holes.length; h++) {
-                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, ${h}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
+                for (let h = 0; h < selectedCourse.data.holes.length; h++) {
+                    $('#col' + h).append(`<input onkeyup="calculateScores(${myid}, this.value)" class="scoreInputBox" id="p${myid}h${h}" type="number">`);
 
                 }
             }
