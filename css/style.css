@@ -1,5 +1,5 @@
 body, html {
-  background-color: #F1F5F0;
+  background-color: #3F524E;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -27,20 +27,56 @@ body, html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+  font-family: "Roboto", sans-serif; }
 
 .topPage {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
   width: 100%;
-  height: 300px;
-  background-color: #F1F5F0; }
+  height: 500px;
+  background-color: #3F524E;
+  color: #F1F5F0;
+  margin-top: 25px; }
+  .topPage .header {
+    font-family: "Cute Font", cursive;
+    font-size: 75px; }
+  .topPage .basic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px; }
+  .topPage .selectCourseBox {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .topPage .selectCourseBox .selectText {
+      text-align: center; }
+    .topPage .selectCourseBox .courseBox {
+      display: flex;
+      justify-content: space-evenly; }
+    .topPage .selectCourseBox .coursesList {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      border: 1px solid #24373F;
+      padding: 20px;
+      background-color: #F1F5F0; }
+      .topPage .selectCourseBox .coursesList .courseImage {
+        width: 200px;
+        height: 200px; }
 
 .demo-card-wide.mdl-card {
   width: 1000px; }
 
+.courseBtn {
+  margnin-top: 15px; }
+
 .courseBtn:hover {
+  background-color: #B6D9B9; }
+
+.teeBtn:hover {
   background-color: #B6D9B9; }
 
 .courseCard {

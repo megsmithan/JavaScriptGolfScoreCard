@@ -14,15 +14,15 @@ class Player {
         this.name = name;
         // this.outArray = [];
         // this.out = [];
-        // this.inArray = [];
+        this.inArray = [];
         // this.inscore = [];
     }
     // addOutScore(num) {
     //     this.outArray.push(num);
     // }
-    // addInScore(num) {
-    //     this.inArray.push(num);
-    // }
+    addInScore(num) {
+        this.inArray.push(num);
+    }
     // outScore(num) {
     //     this.out.splice(0, 1, num);
     //     //this.out.push(num);

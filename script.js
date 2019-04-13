@@ -1,5 +1,6 @@
 
 function showCard(teeType) {
+    // $('.courseBox').hide();
 
     let selectedTees = teeType;
     let outPar = 0;
@@ -8,7 +9,10 @@ function showCard(teeType) {
     let inYards = 0;
     let totalPar = 0;
     let totalYards = 0;
+
     $('.courseCard').prepend(`<div id="courseName">${selectedCourse.data.name}</div>`);
+    // $('.courseCard').prepend(`<div id="newCourse"><button onclick="newCourseBtn()">select a different course</button></div>`);
+
     for (let c = 0; c < 9; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
             <div class="holeRow, holeStyle">${selectedCourse.data.holes[c].hole}</div>
@@ -84,7 +88,7 @@ function createPlayer(val) {
             // }
 
             let players = 1;
-            $('.playerBox').append(`<div>
+            $('.playerBox').prepend(`<div>
                ${val}
                 </div>`);
             $('.addPlayerInput').val('');
@@ -130,13 +134,16 @@ function calculateScores(id) {
 
     //make array, push values, if statement with id to replace existing value;
     //when array.length = 18; display modal
-    let scoreArray = [];
+
 
 
 
 }
 
-
+// function newCourseBtn() {
+//     //$('.courseCard').html('');
+//     $('.courseBox').show();
+// }
 
 
 

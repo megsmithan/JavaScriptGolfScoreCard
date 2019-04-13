@@ -11,6 +11,7 @@ function getCourses() {
             //console.log(allCourses);
             for (let c = 0; c < allCourses.courses.length; c++) {
                 $('.courseBox').append(`<div class="coursesList">
+                    <img class="courseImage" src="${allCourses.courses[c].image}">
                     <button class="mdl-button mdl-js-button mdl-button--raised courseBtn" onclick="selectCourse(${allCourses.courses[c].id}, this)">${allCourses.courses[c].name}</button>
                     </div>`);
             }
@@ -33,7 +34,7 @@ function selectCourse(id, btn) {
             //console.log(teeBox);
 
             for (let i = 0; i < teeBox.length; i++) {
-                $(theCourse).append(`<button onclick="showCard(${i})">${teeBox[i].teeColorType}</button>`)
+                $(theCourse).append(`<button class="teeBtn" onclick="showCard(${i})">${teeBox[i].teeColorType}</button>`)
             }
         }
     };
