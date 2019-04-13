@@ -1,5 +1,6 @@
 
 function showCard(teeType) {
+
     let selectedTees = teeType;
     let outPar = 0;
     let outYards = 0;
@@ -60,20 +61,27 @@ function showCard(teeType) {
             <div class="hcpStyle">handicap</div>
             </div>`);
     $('.playerBox').append(`<div class="addPlayerBox"><input class="addPlayerInput" type="text" placeholder="type name here" onkeyup="createPlayer(this.value, event)"></div>`)
+
 }
 
 function createPlayer(val) {
     switch(event.key) {
         case 'Enter':
             let myid = playerX.playersArray.length;
+            //console.log(playerX.playersArray.player.name);
+
+            playerX.addPlayer(myid, val);
+            console.log(playerX.playersArray);
+
             // for (let i = 0; i < playerX.playersArray.length; i++) {
-            //     if (playerX.playersArray[i].includes(val)) {
-            //         $('.playerBox').append(`<div>please select a name that has not been used</div>`)
+            //     console.log(playerX.playersArray[i].name);
+            //     if (playerX.playersArray[i].name.includes(val)) {
+            //         //showNameModal(this);
+            //         // $('.playerBox').append(`<div>please select a name that has not been used</div>`)
             //     } else {
             //          playerX.addPlayer(myid, val);
             //     }
             // }
-            playerX.addPlayer(myid, val);
 
             let players = 1;
             $('.playerBox').append(`<div>
@@ -117,6 +125,15 @@ function calculateScores(id) {
         total += Number($(`#p${id}h${h}`).val());
     }
     $(`#total${id}`).html(total);
+
+    //if all the p${p}h{h} inputs have a value, display modal?
+
+    //make array, push values, if statement with id to replace existing value;
+    //when array.length = 18; display modal
+    let scoreArray = [];
+
+
+
 }
 
 

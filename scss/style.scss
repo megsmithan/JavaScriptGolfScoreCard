@@ -12,9 +12,37 @@ $darkblue: #24373F;
   align-items: center;
 }
 
-body {
+body, html {
   background-color: $greywhite;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
+.nameModal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  .inner{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .popup {
+      background-color: $medgreen;
+      border-radius: 15px;
+      width: 400px;
+      height: 300px;
+      padding: 30px;
+    }
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -63,6 +91,7 @@ body {
   justify-content: center;
   background-color: $greywhite;
   border: 3px solid $darkgreen;
+  width: 1200px;
 
   #courseName {
     width: 100%;
