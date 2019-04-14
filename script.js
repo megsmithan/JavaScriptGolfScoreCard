@@ -10,8 +10,9 @@ function showCard(teeType) {
     let totalPar = 0;
     let totalYards = 0;
 
-    $('.courseCard').prepend(`<div id="courseName">${selectedCourse.data.name}</div>`);
+    $('.courseCard').prepend(`<div class="infoBox"><div id="courseName">${selectedCourse.data.name}</div></div>`);
     // $('.courseCard').prepend(`<div id="newCourse"><button onclick="newCourseBtn()">select a different course</button></div>`);
+
 
     for (let c = 0; c < 9; c++) {
         $('.courseInfoBox').append(`<div id="col${c}" class="columns">
@@ -72,22 +73,10 @@ function createPlayer(val) {
     switch(event.key) {
         case 'Enter':
             let myid = playerX.playersArray.length;
-            //console.log(playerX.playersArray.player.name);
-
             playerX.addPlayer(myid, val);
-            console.log(playerX.playersArray);
-
-            // for (let i = 0; i < playerX.playersArray.length; i++) {
-            //     console.log(playerX.playersArray[i].name);
-            //     if (playerX.playersArray[i].name.includes(val)) {
-            //         //showNameModal(this);
-            //         // $('.playerBox').append(`<div>please select a name that has not been used</div>`)
-            //     } else {
-            //          playerX.addPlayer(myid, val);
-            //     }
-            // }
 
             let players = 1;
+
             $('.playerBox').prepend(`<div>
                ${val}
                 </div>`);
@@ -104,7 +93,7 @@ function createPlayer(val) {
 
             if(playerX.playersArray.length === 4) {
                 $('.addPlayerBox').hide();
-        }
+            }
     }
     //console.log(playerX.playersArray);
 
@@ -127,18 +116,39 @@ function calculateScores(id) {
 
     for(let h = 0; h < 18; h++) {
         total += Number($(`#p${id}h${h}`).val());
-    }
+
+
+
+        // for (let i = 0; i < playerX.playersArray.length; i++) {
+        //     if (playerX.playersArray[i].id === id) {
+        //         playerX.playersArray[i].addInScore($(`#p${id}h${h}`), Number($(`#p${id}h${h}`).val()));
+        //         console.log(playerX.playersArray[i].inArray);
+        //
+        // }
     $(`#total${id}`).html(total);
+        // if ($(`#p${id}h${h}`) !== null) {
+        //     $('.courseBox').append(`<div>great</div>`);
+        // }
+
+        }
+        // let inSum = playerX.playersArray[i].inArray.reduce((a, b) => a + b);
+        // playerX.playersArray[i].inScore(inSum);
+        // console.log(playerX.playersArray[i].inscore);
+        // $('#in' + id).html(`${playerX.playersArray[i].inscore}`);
+
 
     //if all the p${p}h{h} inputs have a value, display modal?
 
     //make array, push values, if statement with id to replace existing value;
     //when array.length = 18; display modal
 
-
-
-
 }
+
+
+
+
+
+
 
 // function newCourseBtn() {
 //     //$('.courseCard').html('');

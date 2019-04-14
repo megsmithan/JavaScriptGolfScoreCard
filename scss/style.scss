@@ -50,8 +50,10 @@ body, html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   font-family: $mainfont;
+  font-size: 15px;
+  align-items: center;
 
 }
 .topPage{
@@ -64,6 +66,7 @@ body, html {
   background-color: $darkgreen;
   color: $greywhite;
   margin-top: 25px;
+
 
   .mainImage {
     //width: 100%;
@@ -116,7 +119,7 @@ body, html {
 }
 
 .demo-card-wide.mdl-card {
-  width: 1000px;
+  //width: 1000px;
 }
 //.coursesList {
 //  position: relative;
@@ -128,19 +131,25 @@ body, html {
   //height: 50px;
   //border-radius: 15px;
   //background-color: $greywhite;
-  margnin-top: 15px;
+  //margin-top: 15px;
 }
 .courseBtn:hover {
   background-color: $lightgreen;
 }
+.teeBtn {
+  margin-top: 3px;
+}
 .teeBtn:hover {
+  background-color: $lightgreen;
+}
+.teeBtn:focus {
   background-color: $lightgreen;
 }
 
 
-
 .courseCard {
-  //padding: 20px;
+  padding: 20px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   background-color: $greywhite;
@@ -148,7 +157,13 @@ body, html {
   width: 1200px;
 
   #courseName {
-    width: 100%;
+    width: 100%
+  }
+
+  .infoBox {
+    //display: flex;
+    //justify-content: center;
+    margin-right: 30px;
   }
 }
 .courseInfoBox {
@@ -174,6 +189,7 @@ body, html {
 .holeStyle {
   color: deeppink;
   font-weight: bold;
+
 }
 .parStyle {
   color: orangered;

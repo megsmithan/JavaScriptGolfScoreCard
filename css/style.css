@@ -27,8 +27,9 @@ body, html {
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  align-items: center; }
 
 .topPage {
   display: flex;
@@ -67,19 +68,21 @@ body, html {
         width: 200px;
         height: 200px; }
 
-.demo-card-wide.mdl-card {
-  width: 1000px; }
-
-.courseBtn {
-  margnin-top: 15px; }
-
 .courseBtn:hover {
   background-color: #B6D9B9; }
+
+.teeBtn {
+  margin-top: 3px; }
 
 .teeBtn:hover {
   background-color: #B6D9B9; }
 
+.teeBtn:focus {
+  background-color: #B6D9B9; }
+
 .courseCard {
+  padding: 20px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   background-color: #F1F5F0;
@@ -87,6 +90,8 @@ body, html {
   width: 1200px; }
   .courseCard #courseName {
     width: 100%; }
+  .courseCard .infoBox {
+    margin-right: 30px; }
 
 .courseInfoBox {
   display: flex; }

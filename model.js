@@ -20,8 +20,8 @@ class Player {
     // addOutScore(num) {
     //     this.outArray.push(num);
     // }
-    addInScore(num) {
-        this.inArray.push(num);
+    addInScore(index, num) {
+        this.inArray.splice(index, 1, num);
     }
     // outScore(num) {
     //     this.out.splice(0, 1, num);
